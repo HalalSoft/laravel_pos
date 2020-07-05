@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Product extends Model
+class Transaction extends Model
 {
 
     /**
@@ -17,23 +17,25 @@ class Product extends Model
      */
     protected $fillable
         = [
-            'name',
-            'unit_id',
-            'category_id',
-            'qty',
-            'price',
-            'original_price',
-            'description',
+            'customer_id',
+            'employee_id',
+            'discount',
+            'total',
+            'cash',
         ];
 
 
-    public function unit()
+    public function customer()
     {
-        return $this->belongsTo(Unit::class);
+        return $this->belongsTo(Customer::class);
     }
 
-    public function category()
+    public function employee()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Employee::class);
+    }
+    public function detail()
+    {
+        return $this->hasMany(TransactionDetail::class);
     }
 }

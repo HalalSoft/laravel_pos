@@ -26,12 +26,13 @@
 
         <div class=" col-lg-12">
 
-            <form method="post" action="{{route("unit.store")}}">
+            <form method="post" action="{{route("unit.update",$data->id)}}">
 
                 {{csrf_field()}}
+                {{method_field("patch")}}
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp"
+                    <input name="name" type="text" value="{{$data->name}}" class="form-control" id="name" aria-describedby="emailHelp"
                            placeholder="Unit name" required>
                     <small id="emailHelp" class="form-text text-danger">This field is required</small>
                 </div>

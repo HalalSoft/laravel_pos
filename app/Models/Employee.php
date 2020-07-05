@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Customer extends Model
+class Employee extends Model
 {
 
     /**
@@ -16,7 +16,11 @@ class Customer extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'address', 'phone',
+        'name', 'email', 'password','role_id',
     ];
 
+
+    public function role(){
+        return $this->belongsTo(Role::class);
+}
 }

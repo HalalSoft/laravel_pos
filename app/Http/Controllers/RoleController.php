@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class RoleController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -21,19 +21,19 @@ class CategoryController extends Controller
     public function index()
     {
 
-        $data = Category::all();
+        $data = Role::all();
 
-        return view("category.index", compact("data"));
+        return view("role.index", compact("data"));
     }
 
     public function store()
     {
         $data = ["name" => request()->name];
-        $data = Category::create($data);
+        $data = Role::create($data);
         alert()->info("Create is successfully!");
 
         if ($data) {
-            return redirect(route("category.index"));
+            return redirect(route("role.index"));
 
         }
 
@@ -44,41 +44,41 @@ class CategoryController extends Controller
     {
 
 
-        return view("category.create");
+        return view("role.create");
     }
 
     public function edit($id)
     {
 
-        $data = Category::findOrFail($id);
+        $data = Role::findOrFail($id);
 
-        return view("category.edit",compact('data'));
+        return view("role.edit",compact('data'));
     }
 
     public function update($id)
     {
 
-        $data = Category::findOrFail($id);
+        $data = Role::findOrFail($id);
 
         $data->update(request()->only("name"));
 
         alert()->info("Update is successfully!");
 
-        return redirect(route("category.index"));
+        return redirect(route("role.index"));
     }
 
     public function show($id)
     {
 
-        $data = Category::findOrFail($id);
+        $data = Role::findOrFail($id);
 
-        return view("category.show",compact('data'));
+        return view("role.show",compact('data'));
     }
 
     public function destroy($id)
     {
 
-        $data = Category::find($id);
+        $data = Role::find($id);
         if ($data) {
             $data->destroy($id);
 

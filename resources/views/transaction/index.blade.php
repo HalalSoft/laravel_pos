@@ -13,7 +13,7 @@
     <div class="container-fluid">
 
       <!-- Page Heading -->
-      <h1 class="h3 mb-2 text-gray-800">Products</h1>
+      <h1 class="h3 mb-2 text-gray-800">Transactions</h1>
       <p class="mb-4">BumDes - POS Waserda</a>.</p>
 
       <!-- DataTales Example -->
@@ -22,10 +22,10 @@
           <div class="row col-lg-12">
 
           <div class="col-lg-6">
-            <h5 class="m-0 font-weight-bold text-primary" style="padding-top: 10px;">Products</h5>
+            <h5 class="m-0 font-weight-bold text-primary" style="padding-top: 10px;">Transactions</h5>
           </div>
           <div class="col-sm-6">
-            <a href="{{route("product.create")}}" class="btn btn-success float-right">Create Products</a>
+            <a href="{{route("transaction.create")}}" class="btn btn-success float-right">Create Products</a>
           </div>
           </div>
         </div>
@@ -35,13 +35,10 @@
               <thead>
               <tr>
                 <th>No</th>
-                <th>Name</th>
-                <th>Unit</th>
-                <th>Category</th>
-                <th>Qty</th>
-                <th>Price</th>
-                <th>Organic Price</th>
-                <th>Description</th>
+                <th>Customer</th>
+                <th>Employee</th>
+                <th>Date</th>
+                <th>Discount</th>
                 <th>Created at</th>
                 <th>Action</th>
               </tr>
@@ -49,13 +46,10 @@
               <tfoot>
               <tr>
                 <th>No</th>
-                <th>Name</th>
-                <th>Unit</th>
-                <th>Category</th>
-                <th>Qty</th>
-                <th>Price</th>
-                <th>Organic Price</th>
-                <th>Description</th>
+                <th>Customer</th>
+                <th>Employee</th>
+                <th>Date</th>
+                <th>Discount</th>
                 <th>Created at</th>
                 <th width="10%">Action</th>
               </tr>
@@ -64,16 +58,13 @@
             @foreach($data as $item)
               <tr>
                 <th>{{$item->id}}</th>
-                <th>{{$item->name}}</th>
-                <th>{{$item->unit->name ?? "-"}}</th>
-                <th>{{$item->category->name ?? "-"}}</th>
-                <th>{{$item->qty}}</th>
-                <th>{{$item->price}}</th>
-                <th>{{$item->original_price}}</th>
-                <th>{{$item->description}}</th>
+                <th>{{$item->customer->name}}</th>
+                <th>{{$item->employee->name ?? "-"}}</th>
+                <th>{{$item->date}}</th>
+                <th>{{$item->discount}}</th>
                 <th>{{$item->created_at}}</th>
-                <th><a href="{{route("product.show",$item->id)}}"><i class="fas fa-fw fa-eye"></i></a>
-                  <a href="{{route("product.edit",$item->id)}}"><i class="fas fa-fw fa-edit"></i></a>
+                <th><a href="{{route("transaction.show",$item->id)}}"><i class="fas fa-fw fa-eye"></i></a>
+                  <a href="{{route("transaction.edit",$item->id)}}"><i class="fas fa-fw fa-edit"></i></a>
                   <a  href="javascript:void(0);" onclick="destroyData({{$item->id}})"><i class="fas fa-fw fa-trash"></i></a>
                 </th>
               </tr>

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Employee extends Model
+class Product extends Model
 {
 
     /**
@@ -15,12 +15,25 @@ class Employee extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password','role_id',
-    ];
+    protected $fillable
+        = [
+            'name',
+            'unit_id',
+            'category_id',
+            'qty',
+            'price',
+            'original_price',
+            'description',
+        ];
 
 
-    public function role(){
-        return $this->belongsTo(Role::class);
-}
+    public function unit()
+    {
+        return $this->belongsTo(Unit::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

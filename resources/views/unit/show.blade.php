@@ -33,11 +33,19 @@
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input name="name" type="text" value="{{$data->name}}" class="form-control" id="name" aria-describedby="emailHelp"
-                           placeholder="Unit name" required>
-                    <small id="emailHelp" class="form-text text-danger">This field is required</small>
+                           placeholder="Unit name" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="name">Created At</label>
+                    <input type="text" value="{{$data->created_at}}" class="form-control" id="name" aria-describedby="emailHelp"
+                           placeholder="Unit name" readonly>
+                </div><div class="form-group">
+                    <label for="name">Updated At</label>
+                    <input type="text" value="{{$data->updated_at}}" class="form-control" id="name" aria-describedby="emailHelp"
+                           placeholder="Unit name" readonly>
                 </div>
                 <a  href="{{route("unit.index")}}" class="btn btn-secondary">Back</a>
-                <button type="submit" class="btn btn-success">Save</button>
+                <a  href="{{route("unit.edit",$data->id)}}" class="btn btn-primary">Edit</a>
             </form>
 
         </div>

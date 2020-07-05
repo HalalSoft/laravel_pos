@@ -13,7 +13,7 @@
     <div class="container-fluid">
 
       <!-- Page Heading -->
-      <h1 class="h3 mb-2 text-gray-800">Customers</h1>
+      <h1 class="h3 mb-2 text-gray-800">Employees</h1>
       <p class="mb-4">BumDes - POS Waserda</a>.</p>
 
       <!-- DataTales Example -->
@@ -22,10 +22,10 @@
           <div class="row col-lg-12">
 
           <div class="col-lg-6">
-            <h5 class="m-0 font-weight-bold text-primary" style="padding-top: 10px;">Customers</h5>
+            <h5 class="m-0 font-weight-bold text-primary" style="padding-top: 10px;">Employees</h5>
           </div>
           <div class="col-sm-6">
-            <a href="{{route("customer.create")}}" class="btn btn-success float-right">Create Customer</a>
+            <a href="{{route("employee.create")}}" class="btn btn-success float-right">Create Employee</a>
           </div>
           </div>
         </div>
@@ -36,8 +36,8 @@
               <tr>
                 <th>No</th>
                 <th>Name</th>
-                <th>Address</th>
-                <th>Phone</th>
+                <th>Email</th>
+                <th>Role</th>
                 <th>Created at</th>
                 <th>Action</th>
               </tr>
@@ -46,8 +46,8 @@
               <tr>
                 <th>No</th>
                 <th>Name</th>
-                <th>Address</th>
-                <th>Phone</th>
+                <th>Email</th>
+                <th>Role</th>
                 <th>Created at</th>
                 <th width="10%">Action</th>
               </tr>
@@ -57,11 +57,11 @@
               <tr>
                 <th>{{$item->id}}</th>
                 <th>{{$item->name}}</th>
-                <th>{{$item->address}}</th>
-                <th>{{$item->phone}}</th>
+                <th>{{$item->email}}</th>
+                <th>{{$item->role->name ?? "-"}}</th>
                 <th>{{$item->created_at}}</th>
-                <th><a href="{{route("customer.show",$item->id)}}"><i class="fas fa-fw fa-eye"></i></a>
-                  <a href="{{route("customer.edit",$item->id)}}"><i class="fas fa-fw fa-edit"></i></a>
+                <th><a href="{{route("employee.show",$item->id)}}"><i class="fas fa-fw fa-eye"></i></a>
+                  <a href="{{route("employee.edit",$item->id)}}"><i class="fas fa-fw fa-edit"></i></a>
                   <a  href="javascript:void(0);" onclick="destroyData({{$item->id}})"><i class="fas fa-fw fa-trash"></i></a>
                 </th>
               </tr>

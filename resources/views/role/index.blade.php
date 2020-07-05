@@ -13,7 +13,7 @@
     <div class="container-fluid">
 
       <!-- Page Heading -->
-      <h1 class="h3 mb-2 text-gray-800">Categories</h1>
+      <h1 class="h3 mb-2 text-gray-800">Roles</h1>
       <p class="mb-4">BumDes - POS Waserda</a>.</p>
 
       <!-- DataTales Example -->
@@ -22,10 +22,10 @@
           <div class="row col-lg-12">
 
           <div class="col-lg-6">
-            <h5 class="m-0 font-weight-bold text-primary" style="padding-top: 10px;">Categories</h5>
+            <h5 class="m-0 font-weight-bold text-primary" style="padding-top: 10px;">Roles</h5>
           </div>
           <div class="col-sm-6">
-            <a href="{{route("category.create")}}" class="btn btn-success float-right">Create category</a>
+            <a href="{{route("role.create")}}" class="btn btn-success float-right">Create role</a>
           </div>
           </div>
         </div>
@@ -54,8 +54,8 @@
                 <th>{{$item->id}}</th>
                 <th>{{$item->name}}</th>
                 <th>{{$item->created_at}}</th>
-                <th><a href="{{route("category.show",$item->id)}}"><i class="fas fa-fw fa-eye"></i></a>
-                  <a href="{{route("category.edit",$item->id)}}"><i class="fas fa-fw fa-edit"></i></a>
+                <th><a href="{{route("role.show",$item->id)}}"><i class="fas fa-fw fa-eye"></i></a>
+                  <a href="{{route("role.edit",$item->id)}}"><i class="fas fa-fw fa-edit"></i></a>
                   <a  href="javascript:void(0);" onclick="destroyData({{$item->id}})"><i class="fas fa-fw fa-trash"></i></a>
                 </th>
               </tr>
