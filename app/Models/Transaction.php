@@ -2,14 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class Transaction extends Model
 {
-
     /**
      * The attributes that are mass assignable.
      *
@@ -24,7 +20,6 @@ class Transaction extends Model
             'cash',
         ];
 
-
     public function customer()
     {
         return $this->belongsTo(Customer::class);
@@ -34,6 +29,7 @@ class Transaction extends Model
     {
         return $this->belongsTo(Employee::class);
     }
+
     public function detail()
     {
         return $this->hasMany(TransactionDetail::class);

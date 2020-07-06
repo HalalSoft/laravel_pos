@@ -14,8 +14,7 @@ class UpdateProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->integer("original_price");
-
+            $table->integer('original_price');
         });
     }
 

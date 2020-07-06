@@ -15,15 +15,14 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("customer_id");
-            $table->foreignId("employee_id");
-            $table->decimal("discount");
-            $table->decimal("total");
+            $table->foreignId('customer_id');
+            $table->foreignId('employee_id');
+            $table->decimal('discount');
+            $table->decimal('total');
             $table->timestamps();
 
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->foreign('employee_id')->references('id')->on('employees');
-
         });
     }
 

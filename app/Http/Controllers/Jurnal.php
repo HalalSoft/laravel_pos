@@ -9,7 +9,8 @@ class Jurnal extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function __invoke(Request $request)
@@ -19,6 +20,6 @@ class Jurnal extends Controller
 
     public function index()
     {
-        return view("jurnal");
+        return view('jurnal');
     }
 }

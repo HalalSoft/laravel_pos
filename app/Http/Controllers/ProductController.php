@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee;
-use App\Models\Product;
-use App\Models\Role;
-use App\Models\Unit;
 use App\Models\Category;
+use App\Models\Product;
+use App\Models\Unit;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class ProductController extends Controller
 {
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function __invoke(Request $request)
@@ -27,27 +25,25 @@ class ProductController extends Controller
     {
         $data = Product::all();
 
-        return view("product.index", compact('data'));
+        return view('product.index', compact('data'));
     }
 
     public function store()
     {
         $data = [
-            "name"     => request()->name,
-            "unit_id"     => request()->unit_id,
-            "category_id" => request()->category_id,
-            "qty" => request()->qty,
-            "price"  => request()->price,
-            "original_price"  => request()->original_price,
-            "description"  => request()->description,
+            'name'            => request()->name,
+            'unit_id'         => request()->unit_id,
+            'category_id'     => request()->category_id,
+            'qty'             => request()->qty,
+            'price'           => request()->price,
+            'original_price'  => request()->original_price,
+            'description'     => request()->description,
         ];
         $data = Product::create($data);
-        alert()->info("Create is successfully!");
+        alert()->info('Create is successfully!');
 
         if ($data) {
-
-            return redirect(route("product.index"));
-
+            return redirect(route('product.index'));
         }
 
         return redirect()->back();
@@ -58,49 +54,43 @@ class ProductController extends Controller
         $units = Unit::all();
         $categories = Category::all();
 
-
-        return view("product.create", compact('units', 'categories'));
+        return view('product.create', compact('units', 'categories'));
     }
 
     public function show($id)
     {
-
         $data = Product::findOrFail($id);
 
-        return view("product.show", compact('data'));
+        return view('product.show', compact('data'));
     }
 
     public function edit($id)
     {
-
-        $data  = Product::findOrFail($id);
+        $data = Product::findOrFail($id);
         $units = Unit::all();
         $categories = Category::all();
 
-        return view("product.edit", compact('data', 'units', 'categories'));
+        return view('product.edit', compact('data', 'units', 'categories'));
     }
 
     public function update($id)
     {
-
         $data = Product::findOrFail($id);
 
-        $data->update(request()->only("name","unit_id","category_id", "qty", "price", "original_price", "description"));
+        $data->update(request()->only('name', 'unit_id', 'category_id', 'qty', 'price', 'original_price', 'description'));
 
-        alert()->info("Update is successfully!");
+        alert()->info('Update is successfully!');
 
-        return redirect(route("product.index"));
+        return redirect(route('product.index'));
     }
 
     public function destroy($id)
     {
-
         $data = Product::find($id);
         if ($data) {
             $data->destroy($id);
-
         }
-        alert()->info("Delete is successfully!");
+        alert()->info('Delete is successfully!');
 
         return redirect()->back();
     }

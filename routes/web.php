@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => 'auth'], function () {
-
     Route::get('/', 'DashboardController@index');
     Route::resource('/product', 'ProductController');
     Route::resource('/category', 'CategoryController');
