@@ -2,14 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class Product extends Model
 {
-
     /**
      * The attributes that are mass assignable.
      *
@@ -25,7 +21,6 @@ class Product extends Model
             'original_price',
             'description',
         ];
-
 
     public function unit()
     {
