@@ -71,7 +71,7 @@
 
 
                             @foreach($selected_products as $item)
-                                <tr>
+                                <tr id="p{{$item["id"]}}">
 
                                     <td>{{$item["id"]}}</td>
                                     <td>{{$item["name"]}}</td>
@@ -115,8 +115,8 @@
                                 <th colspan="3">Cash</th>
 
                                 <th>
-                                    <input name="cash" type="number" id="cash"
-                                           value="{{$_SESSION["cash"] ?? 0}}" style="width: 121px;">
+                                    <input name="cash" type="number" id="cash" min="1"
+                                           value="{{$_SESSION["cash"] ?? 0}}" style="width: 121px;" required>
                                 </th>
                                 <th></th>
                             </tr>
@@ -152,6 +152,11 @@
             <script>
                 var nganu = null;
                 var total = {{$total}};
+
+                function destroyData(id) {
+                    return $("#p"+id).remove();
+                }
+
 
                 function money(nStr) {
                     nStr += '';
@@ -198,6 +203,7 @@
                     });
                     total = total - $(this).val()
                     $("#totalinput").val(total)
+                    $("#total").text(total);
 
                 });
                 $(document).on('change', '.qty', function () {

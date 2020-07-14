@@ -13,19 +13,23 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->foreignId('unit_id');
-            $table->foreignId('category_id');
-            $table->integer('qty');
-            $table->integer('price');
-            $table->string('description');
-            $table->timestamps();
+        Schema::create(
+            'products',
+            function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->foreignId('unit_id');
+                $table->foreignId('category_id');
+                $table->string('barcode')->nullable();
+                $table->integer('qty');
+                $table->integer('price');
+                $table->string('description')->nullable();
+                $table->timestamps();
 
-            $table->foreign('unit_id')->references('id')->on('units');
-            $table->foreign('category_id')->references('id')->on('categories');
-        });
+                $table->foreign('unit_id')->references('id')->on('units');
+                $table->foreign('category_id')->references('id')->on('categories');
+            }
+        );
     }
 
     /**

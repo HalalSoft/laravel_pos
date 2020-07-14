@@ -13,7 +13,7 @@ class TransactionController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param Request $request
+     * @param  Request  $request
      *
      * @return Response
      */
@@ -34,9 +34,9 @@ class TransactionController extends Controller
         session_start();
 
         if (request()->product_id) {
-            $_SESSION['discount'] = request()->discount;
-            $_SESSION['customer_id'] = request()->customer_id;
-            $selected_product = Product::findOrFail(request()->product_id);
+            $_SESSION['discount']                        = request()->discount;
+            $_SESSION['customer_id']                     = request()->customer_id;
+            $selected_product                            = Product::findOrFail(request()->product_id);
             $_SESSION['products'][$selected_product->id] = [
                 'id'    => $selected_product->id,
                 'name'  => $selected_product->name,
@@ -64,14 +64,22 @@ class TransactionController extends Controller
         ];
         $data = Transaction::create($data);
 
+        $totalprofit = 0;
         foreach (request()->selected_products as $k => $val) {
             $selected_product = Product::find($k);
-            $detail = ['qty'=> $val, 'product_id'=>$k,
-                'price'     => $selected_product->price, ];
+            $detail           = [
+                'qty'        => $val,
+                'product_id' => $k,
+                'price'      => $selected_product->price,
+            ];
             //dd($detail);
             $data->detail()->create($detail);
+            $selected_product->qty = $selected_product->qty - $val;
+            $selected_product->save();
+            $totalprofit += $selected_product->price - $selected_product->original_price;
         }
-
+        $data->profit = $totalprofit;
+        $data->save();
         alert()->info('Create is successfully!');
 
         if ($data) {
@@ -85,10 +93,10 @@ class TransactionController extends Controller
     {
         session_start();
 
-        $customers = Customer::all();
-        $products = Product::all();
+        $customers         = Customer::all();
+        $products          = Product::all();
         $selected_products = $_SESSION['products'] ?? [];
-        $total = 0;
+        $total             = 0;
         foreach ($selected_products as $item) {
             $total += $item['price'] * $item['qty'];
         }

@@ -19,6 +19,7 @@ class CreateTransactionsTable extends Migration
             $table->foreignId('employee_id');
             $table->decimal('discount');
             $table->decimal('total');
+            $table->decimal('profit');
             $table->timestamps();
 
             $table->foreign('customer_id')->references('id')->on('customers');

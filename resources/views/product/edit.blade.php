@@ -69,6 +69,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="barcode">Barcode</label>
+                    <input name="barcode" type="text" value="{{$data->barcode}}" class="form-control" id="barcode" aria-describedby="emailHelp"
+                           placeholder="barcode" required>
+                </div>
+                <div class="form-group">
                     <label for="price">Price</label>
                     <input name="price" type="number" value="{{$data->price}}" class="form-control" id="name" aria-describedby="emailHelp"
                            placeholder="price" required>

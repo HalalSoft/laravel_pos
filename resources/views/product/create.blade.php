@@ -63,6 +63,12 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="barcode">Barcode</label>
+                    <input name="barcode" type="text" class="form-control" id="barcode" aria-describedby="emailHelp"
+                           placeholder="barcode" >
+                </div>
+
+                <div class="form-group">
                     <label for="price">Price</label>
                     <input name="price" type="number" class="form-control" id="name" aria-describedby="emailHelp"
                            placeholder="price" required>

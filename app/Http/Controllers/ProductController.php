@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ProductController extends Controller
 {
     /**
      * Handle the incoming request.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  Request  $request
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function __invoke(Request $request)
     {
@@ -28,18 +30,9 @@ class ProductController extends Controller
         return view('product.index', compact('data'));
     }
 
-    public function store()
+    public function store(ProductRequest $request)
     {
-        $data = [
-            'name'            => request()->name,
-            'unit_id'         => request()->unit_id,
-            'category_id'     => request()->category_id,
-            'qty'             => request()->qty,
-            'price'           => request()->price,
-            'original_price'  => request()->original_price,
-            'description'     => request()->description,
-        ];
-        $data = Product::create($data);
+        $data = Product::create($request->data());
         alert()->info('Create is successfully!');
 
         if ($data) {
@@ -51,7 +44,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        $units = Unit::all();
+        $units      = Unit::all();
         $categories = Category::all();
 
         return view('product.create', compact('units', 'categories'));
@@ -66,18 +59,18 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        $data = Product::findOrFail($id);
-        $units = Unit::all();
+        $data       = Product::findOrFail($id);
+        $units      = Unit::all();
         $categories = Category::all();
 
         return view('product.edit', compact('data', 'units', 'categories'));
     }
 
-    public function update($id)
+    public function update(ProductRequest $request, $id)
     {
         $data = Product::findOrFail($id);
 
-        $data->update(request()->only('name', 'unit_id', 'category_id', 'qty', 'price', 'original_price', 'description'));
+        $data->update($request->data());
 
         alert()->info('Update is successfully!');
 

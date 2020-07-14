@@ -25,7 +25,7 @@
             <h5 class="m-0 font-weight-bold text-primary" style="padding-top: 10px;">Transactions</h5>
           </div>
           <div class="col-sm-6">
-            <a href="{{route("transaction.create")}}" class="btn btn-success float-right">Create Products</a>
+            <a href="{{route("transaction.create")}}" class="btn btn-success float-right">Create Transaction</a>
           </div>
           </div>
         </div>
@@ -37,8 +37,9 @@
                 <th>No</th>
                 <th>Customer</th>
                 <th>Employee</th>
-                <th>Date</th>
                 <th>Discount</th>
+                <th>Total</th>
+                <th>Profit</th>
                 <th>Created at</th>
                 <th>Action</th>
               </tr>
@@ -48,8 +49,9 @@
                 <th>No</th>
                 <th>Customer</th>
                 <th>Employee</th>
-                <th>Date</th>
                 <th>Discount</th>
+                <th>Total</th>
+                <th>Profit</th>
                 <th>Created at</th>
                 <th width="10%">Action</th>
               </tr>
@@ -60,8 +62,9 @@
                 <th>{{$item->id}}</th>
                 <th>{{$item->customer->name}}</th>
                 <th>{{$item->employee->name ?? "-"}}</th>
-                <th>{{$item->date}}</th>
                 <th>{{$item->discount}}</th>
+                <th>{{$item->total}}</th>
+                <th>{{$item->profit}}</th>
                 <th>{{$item->created_at}}</th>
                 <th><a href="{{route("transaction.show",$item->id)}}"><i class="fas fa-fw fa-eye"></i></a>
                   <a href="{{route("transaction.edit",$item->id)}}"><i class="fas fa-fw fa-edit"></i></a>
