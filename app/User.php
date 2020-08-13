@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Role;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -37,4 +38,10 @@ class User extends Authenticatable
     ];
 
     protected $table = 'employees';
+    
+    
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }

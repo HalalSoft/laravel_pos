@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use PDF;
 
 class TransactionController extends Controller
 {
@@ -21,18 +22,25 @@ class TransactionController extends Controller
     {
         //
     }
-
+    
     public function index()
     {
         $data = Transaction::all();
-
+        
         return view('transaction.index', compact('data'));
     }
-
+    
+    public function show(Transaction $transaction)
+    {
+        $pdf = PDF::loadView('report.transaction', compact('transaction'));
+        
+        return $pdf->stream('report.pdf');
+    }
+    
     public function store()
     {
         session_start();
-
+        
         if (request()->product_id) {
             $_SESSION['discount']                        = request()->discount;
             $_SESSION['customer_id']                     = request()->customer_id;
@@ -50,7 +58,7 @@ class TransactionController extends Controller
                     }
                 }
             }
-
+            
             return redirect(route('transaction.create'));
         }
 
@@ -63,7 +71,7 @@ class TransactionController extends Controller
             'total'       => request()->total,
         ];
         $data = Transaction::create($data);
-
+        
         $totalprofit = 0;
         foreach (request()->selected_products as $k => $val) {
             $selected_product = Product::find($k);
@@ -81,26 +89,27 @@ class TransactionController extends Controller
         $data->profit = $totalprofit;
         $data->save();
         alert()->info('Create is successfully!');
-
+        
         if ($data) {
             return redirect(route('transaction.index'));
         }
-
+        
         return redirect()->back();
     }
-
+    
     public function create()
     {
         session_start();
-
+        
         $customers         = Customer::all();
+//        $products          = Product::where('qty', '>', 0)->get();
         $products          = Product::all();
         $selected_products = $_SESSION['products'] ?? [];
         $total             = 0;
         foreach ($selected_products as $item) {
             $total += $item['price'] * $item['qty'];
         }
-
+        
         return view('transaction.create', compact('customers', 'products', 'selected_products', 'total'));
     }
 }

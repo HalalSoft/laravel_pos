@@ -51,7 +51,8 @@
                                 <?php foreach ($products as $product) { ?>
                                 <option value="<?= $product->id ?>" data-unit="{{$product->unit->name}}"
                                         data-category="{{$product->category->name}}"
-                                        data-stock="{{$product->qty}}"><?= $product->name ?> </option>
+                                        data-barcode="{{$product->barcode}}"
+                                        data-stock="{{$product->qty}}" @if($product->qty < 1)disabled @endif><?= $product->name.' '.$product->barcode    ?> </option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -177,6 +178,7 @@
                     var unit = $(state.element).data("unit");
                     var category = $(state.element).data("category");
                     var stock = $(state.element).data("stock");
+                    var barcode = $(state.element).data("barcode");
 
                     var $state = $(
                         '<span>' + state.text + '(Stock: ' + stock + ' ' + unit + ') - ' + category + '</span>'

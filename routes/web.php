@@ -22,7 +22,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/customer', 'CustomerController');
     Route::get('/jurnal', 'Jurnal@index');
     Route::resource('/employee', 'EmployeeController');
-    Route::resource('/report', 'Report');
+    Route::get('/report/pdf/permonth', 'ReportController@permonth')->name('report.permonth');
+    Route::get('/report/pdf/perday', 'ReportController@perday')->name('report.perday');
+    Route::get('/report/pdf/perweek', 'ReportController@perweek')->name('report.perweek');
+    Route::resource('/report', 'ReportController');
     Route::resource('/role', 'RoleController');
     Route::resource('/account', 'AccountController');
 });

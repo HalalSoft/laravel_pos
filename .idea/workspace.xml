@@ -2,19 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e424faa-8cf3-4c47-a75e-068f4774ae6f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_8_5_20__11_53_AM.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/report/perday.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/report/permonth.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/report/perweek.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/report/transaction.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/eva.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/eva.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Report.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TransactionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TransactionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/TransactionDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/TransactionDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_14_055103_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_14_055103_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_14_073315_create_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_14_073315_create_transactions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/product/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/product/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/report.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/transaction/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/transaction/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/transaction/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/transaction/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,12 +149,14 @@
       <path value="$PROJECT_DIR$/vendor/halalsoft/laravel-google-cloud-storage" />
       <path value="$PROJECT_DIR$/vendor/aws/aws-sdk-php" />
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
     </include_path>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="877" />
   </component>
   <component name="ProjectId" id="1eX4h8W93Vq4IRACohz5fgpl3DO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -159,7 +168,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.env" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/report" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -172,17 +181,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/database/migrations" />
-      <recent name="$PROJECT_DIR$/resources/views/transaction" />
-      <recent name="$PROJECT_DIR$/app/Models" />
-      <recent name="$PROJECT_DIR$/resources/views/product" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/unit" />
       <recent name="$PROJECT_DIR$/resources/views/layouts" />
       <recent name="$PROJECT_DIR$/public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/report" />
+      <recent name="$PROJECT_DIR$/resources/views/pdf" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/database/migrations" />
+      <recent name="$PROJECT_DIR$/resources/views/transaction" />
     </key>
   </component>
   <component name="RunManager">
@@ -191,6 +200,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -203,26 +213,52 @@
       <updated>1586002029739</updated>
       <workItem from="1586002034375" duration="931000" />
       <workItem from="1592109750563" duration="68961000" />
-      <workItem from="1594454722887" duration="7795000" />
+      <workItem from="1594454722887" duration="9637000" />
+      <workItem from="1594777633706" duration="596000" />
+      <workItem from="1595146163835" duration="4402000" />
+      <workItem from="1595325506392" duration="597000" />
+      <workItem from="1596603190604" duration="11347000" />
+      <workItem from="1596686436984" duration="598000" />
+      <workItem from="1596947444361" duration="9298000" />
     </task>
+    <task id="LOCAL-00001" summary="transaction">
+      <created>1594710501796</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594710501796</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="transaction" />
+    <option name="LAST_COMMIT_MESSAGE" value="transaction" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="585" y="103" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1594459411373">
+    <state x="585" y="103" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1595209739142">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="585" y="103" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1594459411373" />
-    <state x="417" y="26" key="CommitChangelistDialog2" timestamp="1594463970897">
+    <state x="585" y="103" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1595209739142" />
+    <state x="578" y="298" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1596977352528">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="417" y="26" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1594463970897" />
-    <state x="488" y="214" width="703" height="644" key="find.popup" timestamp="1594459502933">
+    <state x="578" y="298" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1596977352528" />
+    <state x="417" y="26" key="CommitChangelistDialog2" timestamp="1594710500312">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="488" y="214" width="703" height="644" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1594459502933" />
+    <state x="417" y="26" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1594710500312" />
+    <state x="440" y="272" key="Vcs.Push.Dialog.v2" timestamp="1597187310991">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="440" y="272" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1597187310991" />
+    <state x="488" y="214" width="703" height="644" key="find.popup" timestamp="1596978637968">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="488" y="214" width="703" height="644" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1596978637968" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -235,6 +271,11 @@
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/layouts/vendorstyle.blade.php</url>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/layouts/layout.blade.php</url>
+          <line>280</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

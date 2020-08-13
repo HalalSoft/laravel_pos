@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "barryvdh/laravel-dompdf": "^0.8.6",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
@@ -17,7 +18,8 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
-        "uxweb/sweet-alert": "^2.0"
+        "uxweb/sweet-alert": "^2.0",
+        "phenx/php-font-lib": "^0.5.1"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
