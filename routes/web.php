@@ -12,9 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middlewasre group. Now create something great!
 |
 */
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'DashboardController@index');
+
     Route::resource('/product', 'ProductController');
     Route::resource('/category', 'CategoryController');
     Route::resource('/unit', 'UnitController');
